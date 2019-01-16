@@ -1,6 +1,4 @@
-# Project 1
-
-Web Programming with Python and JavaScript
+# Book-Review
 
 1. pip3 install -r requirements.txt
 2. Set environment variable:
