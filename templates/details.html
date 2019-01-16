@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+</head>
+<body>
+    <h1><u>{{ book.title }}</u></h1>
+    <p>
+        <b>
+            Title: <i>{{ book.title }}</i><br>
+            Author: <i>{{ book.author }}</i><br>
+            Publication year: <i>{{ book.year }}</i><br>
+            ISBN number: <i>{{ book.isbn }}</i><br><br>
+        </b>
+    </p>
+    <h2>Reviews</h2>
+    <ul>
+        {% for review in reviews %}
+        <li>{{ review.review_text }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('details',isbn=book.isbn) }}" method="POST">
+        <input type="text" name=review placeholder="Leave your review">
+        <button type="submit">Post</button>
+    </form>
+    <h1><u>Goodreads Review Data</u></h1>
+    <p>
+        <b>
+            Average rating: <i>{{ avg_rating }}</i><br>
+            Number of ratings: <i>{{ num_ratings }}</i> 
+        </b>
+    </p>
+</body>
+</html>

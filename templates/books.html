@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search results</title>
+</head>
+<body>
+    <h1>Search results</h1>
+    {% if book_by_isbn %}
+    <li><a href="{{ url_for('details', isbn=book_by_isbn.isbn) }}">{{ book_by_isbn.title }}</a></li>
+    {% endif %}
+    {% for book in book_list %}
+    <li><a href="{{ url_for('details', isbn=book.isbn) }}">{{ book.title }}</a></li>
+    {% endfor %}
+</body>
+</html>
